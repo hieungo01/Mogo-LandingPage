@@ -1,0 +1,72 @@
+.work {
+    padding-top: 10rem;
+    &-list {
+        @include flexbox(stretch);
+        height: 78rem;
+    }
+    &-column {
+        width: 25%;
+    }
+    &-content {
+        color: white;
+        text-align: center;
+    }
+    &-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    &-title {
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        font-weight: bold;
+    }
+    &-desc {
+        font-family: $secondary_font;
+        font-size: 1.5rem;
+        font-weight: 300;
+        font-style: italic;
+    }
+    &-image {
+        @include size(100%);
+        object-fit: cover;
+    }
+    &-item {
+        height: 50%;
+    }
+    &-item--full {
+        height: 100%;
+    }
+    @media screen and(max-width:1279px){
+        &-list{
+            flex-wrap: wrap;
+            overflow: hidden;
+            height: auto;
+        }
+        &-column {
+            width: 50%;
+        }
+        &-item {
+            height: 42rem;
+        }
+        &-item--full {
+            height: 84rem;
+        }
+    }
+    @media screen and(max-width:767px){
+        padding-top: 5rem;
+        &-list{
+            flex-wrap: wrap;
+            overflow: hidden;
+            height: auto;
+        }
+        &-column {
+            width: 100%;
+        }
+        &-item, &-item--full {
+            height: auto;
+        }
+        
+    }
+}
+
+@include hoveEffect(".work-item", ".work-content","false");

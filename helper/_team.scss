@@ -1,0 +1,85 @@
+.team {
+    padding: 10rem 0;
+    background-color: white;
+    &-list {
+        @include flexbox(center,space-between);
+    }
+    &-item {
+        width: calc((100% / 3) - 3rem);
+    }
+    &-info {
+        margin-top: 3rem;
+        text-align: center;
+    }
+    &-name {
+        margin-bottom: 1.5rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: $title_color;
+    }
+    &-position {
+        font-family: $secondary_font;
+        font-style: italic;
+        font-size: 1.5rem;
+    }
+    &-image {
+        @include size(100%);
+        object-fit: cover;
+        
+    }
+    
+    &-social {
+        @include flexbox(center, center);
+
+    }
+    &-social-item:not(:first-child) {
+        border-left: 1px solid $primary_color;
+    }
+    &-social-link {
+        @include flexbox(center,center);
+        @include size(6rem);
+        background-color: $secondary_color;
+        color: $primary_color;
+        font-size: 2rem;
+        transition: 0.3s;
+        &:hover {
+            color:white;
+            background-color: $primary_color;
+        }
+    }
+    @media screen and(max-width:767px) {
+        padding: 3rem 0;
+    }
+    @media  screen and(max-width: 1023px) {
+        &-list {
+            overflow-x: auto;
+            // grid-auto-columns: 80%;
+            // grid-auto-flow: column;
+            // grid-row-gap: 2.5rem;
+            // grid-template-columns: unset;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            margin-left: -2rem;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            padding: 1rem;
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+        }
+        &-item {
+            scroll-snap-align: center;
+            min-width: calc(100% - 2rem);
+            margin-left: 2rem;
+        }
+    }
+}
+@include hoveEffect(".team-main",".team-content");
+
+.brand {
+    padding: 8rem 0;
+    background-color: $gray_color;
+    @media screen and(max-width:767px) {
+        padding: 3rem 0;
+    }
+}

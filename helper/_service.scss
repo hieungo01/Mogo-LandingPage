@@ -1,0 +1,53 @@
+.service {
+    padding-top: 10.5rem;
+    
+    &-list {
+        margin-top: 6.5rem;
+        padding-bottom: 5.5rem;
+        @include flexbox();
+        margin-bottom: 5rem;
+    }
+    &-list:first-child {
+        border-bottom: 1px solid $gray_dark_color;
+    }
+    &-item {
+        @include flexbox(flex-start,space-between);
+        width: calc((100% / 3) - 2.7rem);
+        
+        &-icon {
+            
+            margin: 0 3rem;
+            width: 3.5rem;
+        }
+        &-info {
+            width: calc(100% - 9.5rem);
+
+        }
+
+        &-title {
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: $title_color;
+            font-weight: bold;
+        }
+
+        &-desc {
+            color: $text_color;
+            line-height: 1.6;
+            font-weight: 300;
+            font-family: $secondary_font;
+        }
+    }
+    @media screen and (max-width:1023px) {
+        padding-top: 5rem;
+        &-list {
+            display: block;
+        }
+        &-item {
+            width: 100%;
+            &:not(:last-child) {
+                margin-bottom: 3rem;
+            }
+        }
+    }
+}

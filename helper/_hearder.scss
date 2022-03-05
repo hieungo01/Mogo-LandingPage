@@ -1,0 +1,246 @@
+.header {
+    min-height: 1000px;
+    background: linear-gradient(to bottom, rgba($primary_color, 0.8), rgba($secondary_color, 0.8)), 
+                      url("../images/mogo-template.jpg") no-repeat center / cover;
+
+    &-top {
+        @include flexbox(baseline, space-between);
+        padding-top: 3rem;
+    }
+    &-logo {
+        font-size: 3rem;
+        color: white;
+        font-weight: bold;
+    }
+    &-toggle, .toggle-close {
+        display: none;
+        font-size: 2rem;
+        color: white;
+    }
+    
+    &-menu-link {
+        color: white;
+        text-transform: uppercase;
+        transition: 0.3s;
+        display: inline-block;
+    }
+    &-menu-icon {
+        color: white;
+    }
+
+    &-menu {
+        @include flexbox(baseline, space-between);
+        
+    }
+
+   
+
+    &-content {
+        padding-top: 17rem;
+        margin: 0 auto;
+        text-align: center;
+        color: white;
+        max-width: 80rem;
+        &-caption {
+            font-size: 7.2rem;
+            font-family: $third_font;
+            margin-bottom: 3rem;
+        }
+
+        &-main {
+            font-size: 15rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            position: relative;
+            padding-bottom: 5rem;
+        }
+    }
+    &-content-main::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include size(6rem, 0.5rem);
+        background-color: white;
+    }
+    &-content-more {
+        color: white;
+        padding: 1.5rem 3rem;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 5rem;
+        display: inline-block;
+        border: 4px solid white;
+        font-size: 1.4rem;
+    }
+    &-bottom {
+        margin-top: 15.5rem;
+        padding-bottom: 2.5rem;
+        @include flexbox(flex-start);
+        color: white;
+        
+        &-number {
+            font-size: 2.4rem;
+            font-weight: bold;
+            margin-right: 1rem;
+            
+        }
+        &-text {
+            
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        &-item {
+            padding-top: 2.5rem;
+            border-top: 5px solid white;
+            width: calc(25% - 30px);
+            margin-left: 30px;
+            opacity: 0.7;
+            position: relative;
+            transition: 0.3s;
+            cursor: pointer;
+            
+        }
+        &-item::before {
+            content: "";
+            @include size(7rem, 0.5rem);
+            background-color: $primary_color;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        &-item.is-active, &-item:hover {
+            opacity: 1;
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+
+    @media screen and (min-width:768px) {
+        .header-menu-item:not(:first-child) {
+            margin-left: 5rem;
+        }
+        &-menu-link {
+            color: white;
+            
+            padding-bottom: 1rem;
+            border-bottom: 4px solid transparent;
+            &:hover {
+                color: $secondary_color;
+                border-bottom-color: $secondary_color;
+            }
+        }
+    }
+    @media screen and (max-width:1023px) {
+        min-height: unset;
+        .header-content {
+            padding-top: 10rem;
+        }
+        .header-content-main {
+            font-size: 11rem;
+        }
+
+        .header-bottom {
+            margin-top: 10.5rem;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .header-menu {
+            display: none;
+        }
+        .header-content-caption {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-content-main {
+            font-size: 5rem;
+            padding-bottom: 3rem;
+        }
+        .header-content-more {
+            margin-top: 3rem;
+        }
+        .header-bottom {
+            margin-top: 3rem;
+        }
+
+        .header-bottom-number {
+            font-size: 1.5rem;
+        }
+        .header-bottom-text {
+            font-size: 1.2rem;
+            padding-top: 5px;
+        }
+        .header-bottom-item {
+            
+            padding-top: 1.5rem;
+            @include flexbox(center,space-between,column);
+            
+            &::before {
+                width: 35%;
+            }
+        }
+        .header-menu {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 300px;
+            display: block;
+            background-color: rgba(255, 250, 250, 0.76);
+            padding: 2rem 2.5rem;
+            z-index: 2;
+            
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .header-menu-item {
+            margin-bottom: 1rem;
+            &:nth-child(2) {
+                margin-top: 1rem;
+            }
+        }
+        .header-menu-link {
+            color: $title_color;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            &:hover {
+                color: white;
+                background-color: $secondary_color;
+                
+            }
+        }
+        .header-toggle {
+            display: inline-block;
+            align-self: center;
+        }
+
+        .toggle-close {
+            display: inline-block;
+        }
+        .header-menu.is-expand {
+            transform: translateX(0);
+        }
+
+        .header-menu-icon {
+            padding: 1rem;
+            color: $title_color;
+            font-size: 2rem;
+            display: inline-block;
+            border-radius: 4px;
+            &:hover {
+                color: white;
+                background-color: $secondary_color;
+            }
+        }
+    }
+}

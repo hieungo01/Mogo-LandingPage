@@ -1,0 +1,114 @@
+.quote {
+    background-color: $gray_color;
+    padding: 6.5rem 0;
+   
+
+    &-arrow {
+        font-size: 2rem;
+        color: $gray_dark_color;
+        padding: 2rem;
+        cursor: pointer;
+    }
+    &-content {
+        padding: 0 5.5rem;
+        @include flexbox(center);
+        outline: none;
+    }
+    &-icon {
+        @include size(15rem);
+        @include flexbox(center, center);
+        border: 3px solid $third_color;
+        flex-shrink: 0;
+        margin-right: 6rem;
+    }
+    &-info {
+        // padding-left: 6rem;
+        font-size: 2.4rem;
+        line-height: 1.6;
+        font-style: italic;
+        font-family: $secondary_font;
+        margin-bottom: 2.5rem;
+        color: $text_color;
+    }
+    &-author {
+        font-family: $third_font;
+        font-size: 2.4rem;
+        position: relative;
+        padding-left: 6.5rem;
+        color: $title_color;
+        &::before {
+            content: "";
+            @include size(6rem, 0.4rem);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: $primary_color;
+        }
+    }
+    &-image {
+        @include size(22rem);
+        object-fit: cover;
+        border-radius :100rem;
+        flex-shrink: 0;
+        margin-right: 2.5rem;
+        // max-width: none;
+    }
+    //slick slider
+    .slick-initialized .slick-slide {
+        display: flex;
+    }
+    .slick-arrow {
+        background-color: transparent;
+        border: 0;
+        font-size: 2rem;
+        color: $gray_dark_color;
+        padding: 2rem;
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .slick-prev {
+        left: 0;
+        z-index: 10;
+    }
+    .slick-next {
+        right: 0;
+        z-index: 10;
+    }
+
+    @media screen and (max-width:767px){
+        &-arrow {
+            display: none;
+        }
+        &-content {
+            padding: 0;
+            flex-direction: column;
+        }
+        &-icon {
+            @include size (10rem);
+            margin-right: 0;
+            img {
+                max-width: 50%;
+            }
+        }
+        &-image{
+            @include size(18rem);
+            margin-right: 0;
+        }
+        .slick-arrow {
+            display: none !important;
+        }
+        &-info {
+            padding-left: 0;
+            margin-top: 3rem;
+        }
+        &-desc {
+            font-size: 1.6rem;
+        }
+        &-author {
+            font-size: 2rem;
+        }
+    }
+}

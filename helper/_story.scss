@@ -1,0 +1,125 @@
+.story {
+    padding: 10rem 0;
+    &-list {
+        @include flexbox(stretch,space-between);
+    }
+    &-item {
+        width: calc((100% / 3) - 2rem);
+    }
+    &-image {
+        @include size(100%, 24rem);
+        object-fit: cover;
+    }
+    &-media {
+        position: relative;
+        
+    }
+    &-date {
+        background-color: $third_color;
+        padding: 1.5rem 2rem;
+        @include flexbox(center,center,column);
+        color: white;
+        position: absolute;
+        left: -1rem;
+        bottom: 1rem;
+        z-index: 2;
+        &-number {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+        &-text {
+            font-size: 15;
+            font-style: italic;
+            font-weight: bold;
+            font-family: $secondary_font;
+            
+        }
+    }
+    &-title {
+        color: $title_color;
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.4;
+        margin: 2rem 0;
+    }
+    &-desc {
+        line-height: 1.4;
+        font-family: $secondary_font;
+        font-size: 1.4rem;
+        display: inline-block;
+        font-weight: 300;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid $gray_light_color;
+        margin-bottom: 2rem;
+    }
+    &-meta {
+        @include flexbox();
+        font-size: 1.5rem;
+        font-family: $secondary_font;
+        font-weight: 300;
+        &-item:not(:first-child) {
+            margin-left: 2rem;
+        }
+        &-icon {
+            color: $third_color;
+        }
+        &-number {
+            font-style: italic;
+            
+        }
+    }
+    @media  screen and(max-width:1023px) {
+        padding: 5rem 0 2rem;
+        &-image {
+            height: 14rem;
+        }
+        &-date {
+            padding: 1rem 1.5rem;
+        }
+        &-title {
+            font-size: 1.2rem;
+        }
+        &-desc {
+            font-size: 1.3rem;
+        }
+    }
+    @media  screen and(max-width:767px) {
+        &-list {
+            display: block;
+            
+        }
+        &-item {
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+        &-image {
+            height: auto;
+        }
+    }
+}
+.map {
+    padding: 6rem 0;
+    background: linear-gradient(to bottom, rgba(white, 0.8) , rgba(white, 0.9)), url(../images/map-bg.jpg) no-repeat center / cover;
+    &-content {
+        @include flexbox(center,center,column);
+    }
+    &-heading {
+        position: relative;
+        font-size: 2.4rem;
+        font-weight: bold;
+        color: $primary_color;
+        margin-top: 1.7rem;
+        padding-bottom: 2.5rem;
+        &::after {
+            content: "";
+            position: absolute;
+            @include size(6rem, 5px);
+            background-color: $primary_color;
+            border-radius: 5px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}
